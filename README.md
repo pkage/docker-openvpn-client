@@ -1,6 +1,6 @@
 # OpenVPN Client for Docker
 
-Archived in favor of [a WireGuard version](https://github.com/wfg/docker-wireguard).
+Forked from [https://github.com/wfg/docker-openvpn-client].
 
 ## What is this and what does it do?
 [`ghcr.io/wfg/openvpn-client`](https://github.com/users/wfg/packages/container/package/openvpn-client) is a containerized OpenVPN client.
