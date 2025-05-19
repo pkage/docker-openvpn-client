@@ -37,18 +37,6 @@ if is_enabled "$KILL_SWITCH"; then
     openvpn_args+=("--route-up" "/usr/local/bin/killswitch.sh $ALLOWED_SUBNETS")
 fi
 
-# Example: export FORWARD_PORTS="9080,6881,9696"
-if [[ $FORWARD_PORTS ]]; then
-    IFS=',' read -ra PORTS <<< "${FORWARD_PORTS}"
-
-    for port in "${PORTS[@]}"; do
-        echo "Forwarding TCP port $port"
-        iptables -t nat -A PREROUTING -p tcp --dport "$port" -j REDIRECT --to-port "$port"
-        iptables -t nat -A PREROUTING -p udp --dport "$port" -j REDIRECT --to-port "$port"
-
-    done
-fi
-
 # # Docker secret that contains the credentials for accessing the VPN.
 # if [[ $AUTH_SECRET ]]; then
 #     openvpn_args+=("--auth-user-pass" "/run/secrets/$AUTH_SECRET")
