@@ -65,6 +65,7 @@ services:
 | `ALLOWED_SUBNETS` | | A list of one or more comma-separated subnets (e.g. `192.168.0.0/24,192.168.1.0/24`) to allow outside of the VPN tunnel. |
 | `AUTH_SECRET` | | Docker secret that contains the credentials for accessing the VPN. |
 | `CONFIG_FILE` | | The OpenVPN configuration file or search pattern. If unset, a random `.conf` or `.ovpn` file will be selected. |
+| `FORWARD_PORTS` | | Forward ports (useful for docker-compose). Accepts a comma-separated list of ports, e.g. `9080,9696`|
 | `KILL_SWITCH` | `on` | Whether or not to enable the kill switch. Set to any "truthy" value[1] to enable. |
 
 [1] "Truthy" values in this context are the following: `true`, `t`, `yes`, `y`, `1`, `on`, `enable`, or `enabled`.
