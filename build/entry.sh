@@ -37,9 +37,6 @@ if is_enabled "$KILL_SWITCH"; then
     openvpn_args+=("--route-up" "/usr/local/bin/killswitch.sh $ALLOWED_SUBNETS")
 fi
 
-# ensure that killswitch gets called
-openvpn_args+=("--script-security", "2")
-
 # # Docker secret that contains the credentials for accessing the VPN.
 # if [[ $AUTH_SECRET ]]; then
 #     openvpn_args+=("--auth-user-pass" "/run/secrets/$AUTH_SECRET")
