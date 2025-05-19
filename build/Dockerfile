@@ -10,7 +10,7 @@ RUN apk add --no-cache \
 
 COPY . /usr/local/bin
 
-HEALTHCHECK --interval=5m --timeout=3s \
+HEALTHCHECK --start-period 1m --start-interval=5s --interval=5m --timeout=3s \
   CMD curl -f http://ifconfig.me/ || exit 1
 
 ENV KILL_SWITCH=on
