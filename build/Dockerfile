@@ -4,10 +4,14 @@ RUN apk add --no-cache \
     bash \
     bind-tools \
     iptables \
+    curl \
     ip6tables \
     openvpn
 
 COPY . /usr/local/bin
+
+HEALTHCHECK --interval=5m --timeout=3s \
+  CMD curl -f http://ifconfig.me/ || exit 1
 
 ENV KILL_SWITCH=on
 
